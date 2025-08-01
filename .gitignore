@@ -1,0 +1,6 @@
+data/
+.nextflow.log*
+temp.vcf
+work/
+reference/
+.nextflow
