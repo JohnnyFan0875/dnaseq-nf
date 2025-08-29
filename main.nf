@@ -79,5 +79,6 @@ workflow {
                                         Channel.value(params.result_dir),
                                         Channel.fromPath("${params.ref_dir}/fasta/"),
                                         Channel.fromPath("${params.ref_dir}/vep/"),
-                                        Channel.fromPath("${params.ref_dir}/clinvar/"))
+                                        Channel.fromPath("${params.ref_dir}/clinvar/"),
+                                        Channel.fromPath("${params.ref_dir}/taiwangenome/"))
 }

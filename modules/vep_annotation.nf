@@ -8,6 +8,7 @@ process vep_annotation {
     path ref_fasta_dir
     path vep_cache_dir
     path clinvar_dir
+    path taiwangenome_dir
 
     output:
     tuple val(sample_id), path("${sample_id}.vep.vcf.gz"), emit: vep_annotated_vcf
@@ -25,6 +26,7 @@ process vep_annotation {
       --fasta ${ref_fasta_dir}/Homo_sapiens_assembly38.fasta \
       --assembly GRCh38 \
       --custom ${clinvar_dir}/clinvar.vcf.gz,ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN \
+      --custom ${taiwangenome_dir}/taiwangenome.hg38.merged.sort.normalized.filtered.vcf.gz,TWG,vcf,exact,0,AF \
       --force_overwrite \
       --offline
 
