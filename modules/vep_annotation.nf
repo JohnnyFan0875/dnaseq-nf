@@ -28,6 +28,11 @@ process vep_annotation {
       --custom ${clinvar_dir}/clinvar.vcf.gz,ClinVar,vcf,exact,0,CLNSIG,CLNREVSTAT,CLNDN \
       --custom ${taiwangenome_dir}/taiwangenome.hg38.merged.sort.normalized.filtered.vcf.gz,TWG,vcf,exact,0,AF \
       --force_overwrite \
+      --hgvs \
+      --fork 16 \
+      --no_stats \
+      --mane \
+      --pick \
       --offline
 
     tabix -p vcf ${sample_id}.vep.vcf.gz
