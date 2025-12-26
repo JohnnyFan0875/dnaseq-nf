@@ -16,14 +16,14 @@ process gatk_haplotypecaller {
     script:
     """
     # Generate gVCF
-    gatk --java-options "-Xmx4g" HaplotypeCaller \
+    gatk --java-options "-Xmx8g" HaplotypeCaller \
         -R ${ref_fasta_dir}/Homo_sapiens_assembly38.fasta \
         -I ${recal_bam} \
         -O ${sample_id}.g.vcf.gz \
         -ERC GVCF
 
     # Generate VCF
-    gatk --java-options "-Xmx4g" GenotypeGVCFs \
+    gatk --java-options "-Xmx8g" GenotypeGVCFs \
         -R ${ref_fasta_dir}/Homo_sapiens_assembly38.fasta \
         -V ${sample_id}.g.vcf.gz \
         -O ${sample_id}.vcf.gz    
